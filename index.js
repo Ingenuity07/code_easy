@@ -14,7 +14,7 @@ app.use("/admin",adminRoutes)
 
 if(process.env.NODE_ENV == "production")
 {
-    app.use("client/build")
+    app.use(express.static("client/build"))
 }
 
 
