@@ -3,10 +3,10 @@ const auth = require('../Middleware/auth')
 const router = express();
 const Course = require('../Models/CourseSchema')
 const {ObjectId} = require('mongodb');
-const YT_API_FUNC = require('../API_data/YT-API_funcs');
 const Resource = require('../Models/Resourse');
 const Admin = require('../Models/Admin');
 const bcrypt = require('bcrypt')
+const validUrl = require('valid-url');
 
 router.use(express.json());
 
@@ -124,7 +124,11 @@ router.delete("/deleteCourse/:id", async (req,res)=>{
 
 router.post("/addResource/:id", async (req,res)=>{
     try{
-        const data = await YT_API_FUNC.videoData(req.body.url)
+        const data = req.body
+
+        if(!validUrl.isUri(data.url))
+        throw new Error("Invalid URL")
+
         const resource = await new Resource({
             ...data,
             owner:req.params.id
@@ -142,10 +146,14 @@ router.post("/addResource/:id", async (req,res)=>{
 
 router.patch("/updateResource/:id", async (req,res)=>{
     
-    const data = await YT_API_FUNC.videoData(req.body.url)
-    const updates = Object.keys(data)
+   
 
     try{
+        const data = req.body
+        if(!validUrl.isUri(data.url))
+            throw new Error("Invalid URL")
+    
+        const updates = Object.keys(data)
         const resource = await Resource.findById(req.params.id)
 
         updates.forEach(element => {

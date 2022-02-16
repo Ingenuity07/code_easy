@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import '../src/App.css'
-import Navbar from './Navbar';
-import Footer from './Footer';
-import Resources from './Resources';
-import Home from './Home';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
+import Resources from './Components/Resources';
+import Home from './Components/Home';
 import { useState } from 'react';
-import Admin from './Admin';
-import AddCource from './Add_coursse';
-import AddResource from './Add_resource';
+import Admin from './Components/Admin';
+import AddCource from './Components/Add_coursse';
+import AddResource from './Components/Add_resource';
 
 function App() {
   const [parent, setParent] = useState(null);
@@ -28,7 +28,7 @@ console.log("here")
           
           <Route  path='/Admin' element={<Admin admin={admin} setAdmin={setAdmin} />}/>
           
-          <Route path='/addCourse' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
+          <Route path='/addCourse/:id' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
           
           <Route path='/addResource/:id' element={ <AddResource edit={edit} setEdit={setEdit}/> }/>
           

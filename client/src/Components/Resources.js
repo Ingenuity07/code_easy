@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import useFetch from './useFetch';
 import axios from 'axios'
 
-const Resources = ({ parent, setEdit, edit , admin }) => {
+const Resources = ({ parent, setEdit, edit, admin }) => {
     const { id } = useParams();
 
     // const { data, error, isPending } = useFetch('http://localhost:8000/course/getAllResource/' + id)
@@ -17,18 +17,18 @@ const Resources = ({ parent, setEdit, edit , admin }) => {
 
 
     useEffect(() => {
-        axios.get('course/getAllResource/'+id)
+        axios.get('course/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
-                console.log(res.data)
+                //console.log(res.data)
                 seterror(false)
             })
             .catch(err => { seterror(true) })
 
     }, [deleted])
 
-    if(edit.url!=="")
-    setEdit({title:"",src:"",url:""})
+    if (edit.url !== "")
+        setEdit({ title: "", src: "", url: "" })
 
 
     const handleDelete = (id) => {
@@ -50,7 +50,7 @@ const Resources = ({ parent, setEdit, edit , admin }) => {
 
     const handleEdit = (element) => {
         setEdit(element)
-        navigate('/addResource/'+element._id)
+        navigate('/addResource/' + element._id)
     }
 
 
@@ -69,9 +69,11 @@ const Resources = ({ parent, setEdit, edit , admin }) => {
 
                     <div className="cards cards-resource">
 
-                        {admin&&<Link to={'/addResource/' + id}>
-                            <div className="card card-resource" style={{ height: "4rem" }} >
-                                <h4   >Add Resource</h4>
+                        {admin && <Link to={'/addResource/' + id}>
+                            <div className="card card-resource resource" style={{ height: "4rem" ,borderBlockColor:"#674cff" }} >
+                                
+                                    <h4   >Add More</h4>
+                                
                             </div>
                         </Link>}
 
@@ -83,20 +85,29 @@ const Resources = ({ parent, setEdit, edit , admin }) => {
 
                                     <div >
 
-                                        <div className="card "  >
-                                            {admin&&<div className='resource-option' >
+                                        <div className="card resource"  >
+                                            {admin && <div className='resource-option' >
                                                 <i className="fas fa-wrench" onClick={() => handleEdit(element)}></i>
                                                 <i className="fas fa-trash " onClick={() => handleDelete(element._id)}></i>
                                             </div>
-}
+                                            }
                                             <a href={element.url} target="_blank">
-                                                <div className="card-resource">
-                                                    <div style={{ margin:'auto' }}>
+                                               
+                                               
+                                                <div className="card-resource" style={
+                                                    {
+                                                        paddingTop: "10px",
+                                                        paddingBottom: "10px",
+                                                        marginTop: "0px",
+                                                        marginBottom: "0px"
+                                                        
+                                                    }}
+                                                >
+                                                    {/* <div style={{ margin:'auto' }}>
                                                         <img src={element.img} className="card-img-top" alt="hb" />
-                                                    </div>
-
-                                                    <div className="card-body" style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                                                        <h2 className="card-title">{element.title}</h2>
+                                                    </div> */}
+                                                    <div className="" >
+                                                        <h4 className="card-title">{element.title}</h4>
                                                     </div>
                                                 </div>
                                             </a>

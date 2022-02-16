@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios'
-axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
-
+import { useParams } from "react-router";
 
 const AddCource = ({ edit, setEdit }) => {
 
@@ -10,10 +9,12 @@ const AddCource = ({ edit, setEdit }) => {
     const [src, setSrc] = useState(edit.src);
     const [registered, setRegistered] = useState(false)
     const [error, setError] = useState(false)
-
+    const { id } = useParams();
     const navigate = useNavigate();
-
+    console.log("add course",id)
     const handleSubmit = (event) => {
+        axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
+
         event.preventDefault();
         setRegistered(true)
         const body = {
@@ -23,7 +24,7 @@ const AddCource = ({ edit, setEdit }) => {
 
         if (edit.title === "") {
             axios.post('admin/addCourse', body).then((res) => {
-                 console.log(res)
+                 //console.log(res)
 
                 setRegistered(false)
                 setError(false)
@@ -59,7 +60,7 @@ const AddCource = ({ edit, setEdit }) => {
                 <form onSubmit={handleSubmit}>
                     <h1>Add Course</h1>
                     <div className="textbox">
-                        <i className="fas fa-user"></i>
+                        <i className="fas fa-pen"></i>
                         <input
                             type="text"
                             value={title}
@@ -69,7 +70,7 @@ const AddCource = ({ edit, setEdit }) => {
                     </div>
 
                     <div className="textbox">
-                        <i className="fas fa-lock"></i>
+                        <i className="fas fa-link"></i>
                         <input
                             type="text"
                             required

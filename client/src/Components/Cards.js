@@ -2,11 +2,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState ,useEffect} from 'react';
 import useFetch from './useFetch';
 import axios from 'axios'
+import { useParams } from "react-router";
 
 const Cards = ({ title, setParent, setEdit,edit,admin }) => {
 
     const navigate = useNavigate();
-    
+    const { id } = useParams();
     const [dat, setDat] = useState(null)
     const [deleted, setDeleted] = useState(false)
     const [error,seterror] = useState(false)
@@ -14,7 +15,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
         axios.get('course/getAllCourse')
        .then(res=>{
         setDat(res.data)
-        console.log(res.data)
+        //console.log(res.data)
         seterror(false)
     })
     .catch(err=>{seterror(true)})
@@ -24,6 +25,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
     if(edit.title!=="")
     setEdit({title:"",src:"",url:""})
 
+    console.log(id)
 
     const handleDelete = (id) => {
 
@@ -57,15 +59,9 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
             {!dat && <div>Loading...</div>}
             {dat  &&<div className="cards-crds">
                 {
-                    
-                    
-
                     dat.map((element, index) => (
 
                         <div key={index} >
-
-
-
                             <div >
 
 
@@ -94,14 +90,13 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
                     ))
                 }
                 {admin&&<div >
-                    <Link to='/addCourse'>
+                    <Link to={'/addCourse/'+id}>
                         <div className="card card-crds" >
                             <div className='home-card-img'>
-                                <span className="card-img-top"  ></span>
+                                <span className="card-img-top"  ><i style={{fontSize:"10rem",marginTop:"1rem"}} className="fas fa-plus"></i></span>
                             </div>
-
                             <div className="card-body">
-                                <h5 className="card-title">Add Course</h5>
+                                <h5 className="card-title">Add More</h5>
 
                             </div>
                         </div>

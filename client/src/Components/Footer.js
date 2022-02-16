@@ -23,7 +23,6 @@ const Footer = ({ admin, setAdmin }) => {
 
           <div className="row mt-3">
 
-
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
 
 
