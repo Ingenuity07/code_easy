@@ -69,7 +69,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
                     <div className="cards cards-resource">
 
-                        {admin && <Link to={'/addResource/' + id}>
+                        {admin && <Link to={'/admin/' + id}>
                             <div className="card card-resource resource" style={{ height: "4rem" ,borderBlockColor:"#674cff" }} >
                                 
                                     <h4   >Add More</h4>

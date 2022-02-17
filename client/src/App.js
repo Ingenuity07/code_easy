@@ -30,7 +30,7 @@ console.log("here")
           
           <Route path='/admin' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
           
-          <Route path='/addResource/:id' element={ <AddResource edit={edit} setEdit={setEdit}/> }/>
+          <Route path='/admin/:id' element={ <AddResource edit={edit} setEdit={setEdit}/> }/>
           
         </Routes>
         <Footer admin={admin} setAdmin={setAdmin} />
