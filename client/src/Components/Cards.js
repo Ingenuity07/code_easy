@@ -12,7 +12,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
     const [deleted, setDeleted] = useState(false)
     const [error,seterror] = useState(false)
     useEffect(() => {
-        axios.get('course/getAllCourse')
+        axios.get('/course/getAllCourse')
        .then(res=>{
         setDat(res.data)
         //console.log(res.data)
@@ -31,7 +31,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
 
         const val = window.confirm("You sure wanna delete")
         if (val) {
-            axios.delete('admin/deleteCourse/' + id).then((res) => {
+            axios.delete('/admin/deleteCourse/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log("deleted")
                 setDeleted(!deleted)
@@ -47,7 +47,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
 
         console.log(element)
 
-        navigate('/admin/course')
+        navigate('/addCourse')
     }
 
 
@@ -90,7 +90,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
                     ))
                 }
                 {admin&&<div >
-                    <Link to={'/admin/course/'+id}>
+                    <Link to={'/addCourse/'+id}>
                         <div className="card card-crds" >
                             <div className='home-card-img'>
                                 <span className="card-img-top"  ><i style={{fontSize:"10rem",marginTop:"1rem"}} className="fas fa-plus"></i></span>

@@ -17,7 +17,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
 
     useEffect(() => {
-        axios.get('course/getAllResource/' + id)
+        axios.get('/course/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
                 //console.log(res.data)
@@ -37,7 +37,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
         const val = window.confirm("You sure wanna delete")
         if (val) {
-            axios.delete('admin/deleteResource/' + id).then((res) => {
+            axios.delete('/admin/deleteResource/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log("deleted")
                 setDeleted(!deleted)
