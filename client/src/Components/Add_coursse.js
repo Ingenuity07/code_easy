@@ -23,7 +23,7 @@ const AddCource = ({ edit, setEdit }) => {
         }
 
         if (edit.title === "") {
-            axios.post('admin/addCourse', body).then((res) => {
+            axios.post('/addCourse', body).then((res) => {
                  //console.log(res)
 
                 setRegistered(false)
@@ -35,7 +35,7 @@ const AddCource = ({ edit, setEdit }) => {
             }))
         }
         else {
-            axios.patch('admin/updateCourse/' + edit._id, body).then((res) => {
+            axios.patch('/updateCourse/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log(res)
 

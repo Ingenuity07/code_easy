@@ -28,7 +28,7 @@ console.log("here")
           
           <Route  path='/Admin' element={<Admin admin={admin} setAdmin={setAdmin} />}/>
           
-          <Route path='/addCourse/:id' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
+          <Route path='/admin/course/:id' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
           
           <Route path='/addResource/:id' element={ <AddResource edit={edit} setEdit={setEdit}/> }/>
           

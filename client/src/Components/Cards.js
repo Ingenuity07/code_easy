@@ -47,7 +47,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
 
         console.log(element)
 
-        navigate('/addCourse')
+        navigate('/admin/course')
     }
 
 
@@ -90,7 +90,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
                     ))
                 }
                 {admin&&<div >
-                    <Link to={'/addCourse/'+id}>
+                    <Link to={'/admin/course/'+id}>
                         <div className="card card-crds" >
                             <div className='home-card-img'>
                                 <span className="card-img-top"  ><i style={{fontSize:"10rem",marginTop:"1rem"}} className="fas fa-plus"></i></span>

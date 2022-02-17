@@ -78,7 +78,7 @@ router.get('/logout',auth,async (req,res)=>{
 
 
 
-router.post("/addCourse", async (req,res)=>{
+router.post("course/addCourse", async (req,res)=>{
     const user = new Course(req.body)
     try{
         await user.save()
@@ -90,7 +90,7 @@ router.post("/addCourse", async (req,res)=>{
     }
 })
 
-router.patch("/updateCourse/:id", async (req,res)=>{
+router.patch("course/updateCourse/:id", async (req,res)=>{
    
     const updates = Object.keys(req.body)
     try{
