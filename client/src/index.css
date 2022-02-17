@@ -123,6 +123,7 @@ code {
   color: #ffffff;
   transition: transform 0.2s ease;
   border-radius: 20px;
+  border:1px solid rgb(34, 34, 34);
 }
 
 .card-crds:hover {
@@ -143,6 +144,8 @@ code {
 }
 
 /* Footer */
+
+
 
 .footer {
   color: white;
@@ -191,7 +194,7 @@ code {
   margin: 10px;
   margin-left: 20px;
   margin-right: 20px;
-  border:1px solid white;
+  border:1px solid rgb(34, 34, 34);
   border-radius: 5px;
 }
 
@@ -277,4 +280,23 @@ code {
 
 .resource-option i {
   margin: 10px;
+}
+
+/* search */
+
+.search {
+  display: flex;
+  width: 92vw;
+  margin: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.search input{
+  height: 2.3rem;
+  width: 92vw;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
 }
