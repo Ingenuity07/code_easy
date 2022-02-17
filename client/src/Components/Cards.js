@@ -29,7 +29,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
 
     const handleDelete = (id) => {
 
-        const val = window.confirm("You sure want to Delete")
+        const val = window.confirm("You sure wanna delete")
         if (val) {
             axios.delete('admin/deleteCourse/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
@@ -45,9 +45,9 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
     const handleEdit = (element) => {
         setEdit(element)
 
-        // console.log(element)
+        console.log(element)
 
-        navigate('/admin')
+        navigate('/addCourse')
     }
 
 
@@ -71,7 +71,7 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
                                         <i className="fas fa-wrench" onClick={() => handleEdit(element)}></i>
                                         <i className="fas fa-trash " onClick={() => handleDelete(element._id)}></i>
                                     </div>}
-                                    <Link to={`/course/${element._id}`}>
+                                    <Link to={`/resources/${element._id}`}>
                                         <div onClick={() => setParent(element.title)}>
                                             <div className='home-card-img'>
                                                 <img src={element.src} className="card-img-top" alt="hb" />
@@ -90,13 +90,14 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
                     ))
                 }
                 {admin&&<div >
-                    <Link to={'/admin/'+id}>
+                    <Link to={'/addCourse/'+id}>
                         <div className="card card-crds" >
                             <div className='home-card-img'>
                                 <span className="card-img-top"  ><i style={{fontSize:"10rem",marginTop:"1rem"}} className="fas fa-plus"></i></span>
                             </div>
                             <div className="card-body">
                                 <h5 className="card-title">Add More</h5>
+
                             </div>
                         </div>
                     </Link>

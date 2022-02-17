@@ -17,7 +17,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
 
     useEffect(() => {
-        axios.get('/getAllResource/' + id)
+        axios.get('course/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
                 //console.log(res.data)
@@ -69,7 +69,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
                     <div className="cards cards-resource">
 
-                        {admin && <Link to={'/admin/' + id}>
+                        {admin && <Link to={'/addResource/' + id}>
                             <div className="card card-resource resource" style={{ height: "4rem" ,borderBlockColor:"#674cff" }} >
                                 
                                     <h4   >Add More</h4>

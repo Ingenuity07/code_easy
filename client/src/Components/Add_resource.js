@@ -13,7 +13,10 @@ const AddResource = ({ edit, setEdit }) => {
     const { id } = useParams();
 
     const navigate = useNavigate();
-   
+    let operation = ""
+
+    if (edit.url !== "")
+        operation = "updateResource/"
 
     const handleSubmit = (event) => {
         axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
@@ -25,7 +28,7 @@ const AddResource = ({ edit, setEdit }) => {
         }
 
         if (edit.url === "") {
-            axios.post('/addResource/' + id, body).then((res) => {
+            axios.post('admin/addResource/' + id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                
                 setRegistered(false)
@@ -42,7 +45,7 @@ const AddResource = ({ edit, setEdit }) => {
             console.log(id)
             console.log(edit._id)
 
-            axios.patch('/updateResource/' + edit._id, body).then((res) => {
+            axios.patch('admin/updateResource/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log(res)
 

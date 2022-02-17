@@ -11,7 +11,7 @@ const AddCource = ({ edit, setEdit }) => {
     const [error, setError] = useState(false)
     const { id } = useParams();
     const navigate = useNavigate();
-    // console.log("add course",id)
+    console.log("add course",id)
     const handleSubmit = (event) => {
         axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
 
@@ -23,7 +23,7 @@ const AddCource = ({ edit, setEdit }) => {
         }
 
         if (edit.title === "") {
-            axios.post('/addCourse', body).then((res) => {
+            axios.post('admin/addCourse', body).then((res) => {
                  //console.log(res)
 
                 setRegistered(false)
@@ -35,7 +35,7 @@ const AddCource = ({ edit, setEdit }) => {
             }))
         }
         else {
-            axios.patch('/updateCourse/' + edit._id, body).then((res) => {
+            axios.patch('admin/updateCourse/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log(res)
 
