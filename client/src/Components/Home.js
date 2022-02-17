@@ -9,7 +9,7 @@ const Home = ({setParent,setEdit,edit,admin}) => {
 
       <section className="bgimage">
         <div>
-          <h1>Code Easy</h1>
+          <h1>Your Collections</h1>
           <p>"A platform to Learn and Grow"</p>
         </div>
       </section>
