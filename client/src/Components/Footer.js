@@ -1,22 +1,22 @@
-import { Link } from "react-router-dom";
-import axios from 'axios'
+import { FaGithub } from "@react-icons/all-files/fa/FaGithub";
+import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin";
 
 const Footer = ({ admin, setAdmin }) => {
 
-  const handleSignOut = ()=>{
-    axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
+  // const handleSignOut = ()=>{
+  //   axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('token')
 
-    axios.get('admin/logout')
-    .then(res=>{setAdmin(null)
-      console.log(res)})
-    .catch(err=>console.log(err.message))
-  }
+  //   axios.get('admin/logout')
+  //   .then(res=>{setAdmin(null)
+  //     console.log(res)})
+  //   .catch(err=>console.log(err.message))
+  // }
 
 
   return (
-    <div >
+    <div  >
 
-      <footer className="footer" style={{ color: "white",height:'2rem' }}>
+      <footer className="footer" style={{ color: "white", height: '2rem' }}>
 
         <div className="container text-center text-md-left mt-5">
 
@@ -28,9 +28,9 @@ const Footer = ({ admin, setAdmin }) => {
 
               <h6 className="text-uppercase font-weight-bold">Code Easy</h6>
               {/* <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "20px" }} /> */}
-              <p>Here you can find the best tutorials and resources for various technologies.</p>
+              <p>Here you can find the Best Tutorials and Resources for various technologies.</p>
 
-              <div>
+              {/* <div>
                 {!admin&&<Link to="/admin">
                   <button className="btn btn-outline-success">
                     Admin
@@ -41,7 +41,7 @@ const Footer = ({ admin, setAdmin }) => {
                     Sign Out
                   </button>
                 </Link>}
-              </div>
+              </div> */}
 
 
             </div>
@@ -91,11 +91,12 @@ const Footer = ({ admin, setAdmin }) => {
 
               <h6 className="text-uppercase font-weight-bold">Contact</h6>
               <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
-              
-              <p>  <i className="fa fa-fw fa-envelope mr-3"></i> shivamsi103@gmail.com</p>
-              <div>
-                
+              <div style={{ marginBottom: "10px", fontSize: "1.5rem" }}>
+                <a href="https://github.com/Ingenuity07" target="_blank"><FaGithub /></a>
+                <a href="https://www.linkedin.com/in/shivam-singh-b978a21a1/" target="_blank"> <FaLinkedin /></a>
               </div>
+              <p>  <i className="fa fa-fw fa-envelope mr-3"></i> shivamsi103@gmail.com</p>
+
 
 
             </div>

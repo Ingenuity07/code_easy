@@ -1,10 +1,20 @@
 import { Link } from "react-router-dom";
-import { DropdownButton, Dropdown } from "react-bootstrap";
-const Navbar = (props) => {
+import axios from 'axios'
+const Navbar = ({ admin, setAdmin }) => {
 
+  const handleSignOut = () => {
+    axios.defaults.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('token')
+
+    axios.get('/admin/logout')
+      .then(res => {
+        setAdmin(null)
+        console.log(res)
+      })
+      .catch(err => console.log(err.message))
+  }
   return (
     <div className="sticky" >
-      <nav className="navbar navbar-expand-lg navbar-dark " style={{ padding: "0" }} >
+      <nav className="navbar navbar-expand-lg navbar-dark " style={{ padding: "5px" }} >
         <div className="container-fluid" >
           <Link className="navbar-brand" to="/" style={{ color: "white" }}>Code Easy</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -14,7 +24,7 @@ const Navbar = (props) => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0" >
               <li className="nav-item">
-                <Link className="nav-link active" to="/" style={{ color: "white" }}><i className="fa fa-fw fa-home"></i> Home</Link>
+                <Link className="nav-link active" to="/" style={{ color: "white" }}><i className="fa fa-fw fa-ninja"></i> Home</Link>
 
               </li>
               {/* <li className="nav-item">
@@ -44,6 +54,20 @@ const Navbar = (props) => {
               <button className="btn btn-outline-success" type="submit" style={{ color: "white" }}>Search</button>
             </form> */}
             <div>
+
+              <div>
+                {!admin && <Link to="/admin">
+                  <button className="btn btn-outline-success">
+                    Admin
+                  </button>
+                </Link>}
+                {admin && <Link to="/">
+                  <button className="btn btn-outline-danger" onClick={() => handleSignOut()}>
+                    Sign Out
+                  </button>
+                </Link>}
+              </div>
+
               {/* {!props.profile && <Link to="/User">
                 <button className="btn btn-outline-success" id="show-login" type="submit" style={{ color: "white", borderRadius: "10px", margin: "0px" }}>Sign In</button>
               </Link>}

@@ -151,6 +151,7 @@ code {
 .footer a {
   color: white;
   text-decoration: none;
+  margin:10px ;
 }
 
 .icons i {

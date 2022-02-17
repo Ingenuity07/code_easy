@@ -20,7 +20,7 @@ const Admin = ({admin,setAdmin}) => {
             password
         }
 
-        axios.post('admin/login', body).then((res) => {
+        axios.post('/admin/login', body).then((res) => {
             localStorage.setItem('token', res.data.token)
             const t= localStorage.getItem('token')
             setAdmin(true)
