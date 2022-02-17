@@ -24,11 +24,11 @@ console.log("here")
         <Routes>
           <Route  path='/' element={ <Home admin={admin} setParent={setParent} setEdit={setEdit} edit={edit}/> } />
             
-          <Route path='/resources/:id' element={  <Resources admin={admin} parent={parent} edit={edit} setEdit={setEdit} />}/> 
+          <Route path='/course/:id' element={  <Resources admin={admin} parent={parent} edit={edit} setEdit={setEdit} />}/> 
           
           <Route  path='/Admin' element={<Admin admin={admin} setAdmin={setAdmin} />}/>
           
-          <Route path='/addCourse/:id' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
+          <Route path='/admin' element={ <AddCource edit={edit} setEdit={setEdit}/>  }/>
           
           <Route path='/addResource/:id' element={ <AddResource edit={edit} setEdit={setEdit}/> }/>
           

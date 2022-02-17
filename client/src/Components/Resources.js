@@ -17,7 +17,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
 
     useEffect(() => {
-        axios.get('course/getAllResource/' + id)
+        axios.get('/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
                 //console.log(res.data)
