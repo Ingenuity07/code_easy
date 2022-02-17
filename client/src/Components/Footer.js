@@ -14,7 +14,10 @@ const Footer = ({ admin, setAdmin }) => {
 
 
   return (
-    <div  >
+
+    <section >
+
+    <div >
 
       <footer className="footer" style={{ color: "white", height: '2rem' }}>
 
@@ -91,7 +94,7 @@ const Footer = ({ admin, setAdmin }) => {
 
               <h6 className="text-uppercase font-weight-bold">Contact</h6>
               <hr className="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style={{ width: "60px" }} />
-              <div style={{ marginBottom: "10px", fontSize: "1.5rem" }}>
+              <div style={{marginBottom:"10px",fontSize:"1.5rem"}}>
                 <a href="https://github.com/Ingenuity07" target="_blank"><FaGithub /></a>
                 <a href="https://www.linkedin.com/in/shivam-singh-b978a21a1/" target="_blank"> <FaLinkedin /></a>
               </div>
@@ -107,7 +110,7 @@ const Footer = ({ admin, setAdmin }) => {
 
         </div>
 
-        <div className="foot">
+        {/* <div className="foot"> */}
 
           {/* <div className="icons">
 
@@ -138,10 +141,10 @@ const Footer = ({ admin, setAdmin }) => {
             <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
           </div> */}
 
-        </div>
+        {/* </div> */}
       </footer>
     </div>
-
+    </section>
   );
 }
 

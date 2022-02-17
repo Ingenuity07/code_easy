@@ -14,10 +14,11 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
     const [data, setData] = useState(null)
     const [deleted, setDeleted] = useState(false)
     const [error, seterror] = useState(false)
+    const [search, setSearch] = useState("");
 
 
     useEffect(() => {
-        axios.get('/course/getAllResource/' + id)
+        axios.get('course/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
                 //console.log(res.data)
@@ -33,16 +34,17 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
     const handleDelete = (id) => {
 
+        console.log(id)
 
         const val = window.confirm("You sure wanna delete")
         if (val) {
-            axios.delete('/admin/deleteResource/' + id).then((res) => {
+            axios.delete('admin/deleteResource/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
-              
+                console.log("deleted")
                 setDeleted(!deleted)
                 navigate('/')
             }).catch((err => {
-                
+                console.log(err)
             }))
         }
     }
@@ -69,16 +71,29 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
                     <div className="cards cards-resource">
 
                         {admin && <Link to={'/addResource/' + id}>
-                            <div className="card card-resource resource" style={{ height: "4rem" ,borderBlockColor:"#674cff" }} >
-                                
-                                    <h4   >Add More</h4>
-                                
+                            <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
+
+                                <h4>Add More</h4>
+
                             </div>
                         </Link>}
 
+                        <div className="search">
+                            <i className="fas fa-search" style={{ color: "white", marginRight: "5px", fontSize: "1.5rem" }}></i>
+                            <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} placeholder="Search..."></input>
+                        </div>
+
+                        <hr style={{ color: "white", margin: "10px" }} />
 
                         {
-                            data.map((element, index) => (
+                            data.filter((val) => {
+                                if (search === "")
+                                    return val
+                                else {
+                                    if (val.title.toLowerCase().includes(search.toLowerCase()))
+                                        return val
+                                }
+                            }).map((element, index) => (
 
                                 <div key={index}>
 
@@ -86,20 +101,20 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
                                         <div className="card resource"  >
                                             {admin && <div className='resource-option' >
-                                                <i className="fas fa-wrench" onClick={() => handleEdit(element)}></i>
+                                                <i className="fas fa-edit" onClick={() => handleEdit(element)}></i>
                                                 <i className="fas fa-trash " onClick={() => handleDelete(element._id)}></i>
                                             </div>
                                             }
                                             <a href={element.url} target="_blank">
-                                               
-                                               
+
+
                                                 <div className="card-resource" style={
                                                     {
                                                         paddingTop: "10px",
                                                         paddingBottom: "10px",
                                                         marginTop: "0px",
                                                         marginBottom: "0px"
-                                                        
+
                                                     }}
                                                 >
                                                     {/* <div style={{ margin:'auto' }}>

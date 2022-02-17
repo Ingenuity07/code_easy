@@ -33,7 +33,7 @@ const AddResource = ({ edit, setEdit }) => {
                
                 setRegistered(false)
                 setError(false)
-                navigate('/')
+                navigate(''/resources/'+edit.owner')
             }).catch((err => {
                 setError(true)
                 setRegistered(false)
