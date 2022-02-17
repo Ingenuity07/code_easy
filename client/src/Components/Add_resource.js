@@ -28,7 +28,7 @@ const AddResource = ({ edit, setEdit }) => {
         }
 
         if (edit.url === "") {
-            axios.post('admin/addResource/' + id, body).then((res) => {
+            axios.post('/admin/addResource/' + id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                
                 setRegistered(false)
@@ -45,7 +45,7 @@ const AddResource = ({ edit, setEdit }) => {
             console.log(id)
             console.log(edit._id)
 
-            axios.patch('admin/updateResource/' + edit._id, body).then((res) => {
+            axios.patch('/admin/updateResource/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log(res)
 
