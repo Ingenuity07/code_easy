@@ -23,7 +23,7 @@ const AddCource = ({ edit, setEdit }) => {
         }
 
         if (edit.title === "") {
-            axios.post('/addCourse', body).then((res) => {
+            axios.post('/admin/addCourse', body).then((res) => {
                  //console.log(res)
 
                 setRegistered(false)
@@ -32,10 +32,11 @@ const AddCource = ({ edit, setEdit }) => {
             }).catch((err => {
                 console.log(err)
                 setError(true)
+                setRegistered(false)
             }))
         }
         else {
-            axios.patch('/updateCourse/' + edit._id, body).then((res) => {
+            axios.patch('/admin/updateCourse/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log(res)
 
@@ -45,6 +46,7 @@ const AddCource = ({ edit, setEdit }) => {
             }).catch((err => {
                 console.log(err)
                 setError(true)
+                setRegistered(false)
             }))
         }
     }

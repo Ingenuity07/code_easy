@@ -22,9 +22,7 @@ const Admin = ({admin,setAdmin}) => {
 
         axios.post('admin/login', body).then((res) => {
             localStorage.setItem('token', res.data.token)
-            console.log(res.data.token)
             const t= localStorage.getItem('token')
-            console.log(t)
             setAdmin(true)
             setRegistered(false)
             setError(false)
