@@ -27,7 +27,7 @@ router.get("/getAllResource/:id", async (req,res)=>{
         res.send(resources)}
         catch(er)
     {
-        console.log(er.message)
+        
     }
 })
 

@@ -50,7 +50,6 @@ router.post('/login',async (req,res)=>{
     }
     catch(err)
     {
-        console.log(err.message)
         res.status(500).send(err.message);
     }
 
@@ -70,7 +69,6 @@ router.get('/logout',auth,async (req,res)=>{
     }
     catch(err)
     {
-        console.log(err.message)
         res.status(500).send(err.message);
     }
 

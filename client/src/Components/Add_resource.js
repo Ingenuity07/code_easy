@@ -35,26 +35,21 @@ const AddResource = ({ edit, setEdit }) => {
                 setError(false)
                 navigate('/')
             }).catch((err => {
-                console.log(err)
                 setError(true)
                 setRegistered(false)
             }))
         }
         else {
 
-            console.log(id)
-            console.log(edit._id)
 
             axios.patch('/admin/updateResource/' + edit._id, body).then((res) => {
                 //localStorage.setItem('token', res.token)
-                console.log(res)
-
+                
 
                 setRegistered(false)
                 setError(false)
                 navigate('/resources/'+edit.owner)
             }).catch((err => {
-                console.log(err)
                 setError(true)
                 setRegistered(false)
             }))

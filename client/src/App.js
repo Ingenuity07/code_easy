@@ -14,7 +14,6 @@ function App() {
   const [admin,setAdmin] = useState(null)
   const [edit,setEdit] = useState({title:"",src:"",url:""})
 
-console.log("here")
 
   return (
     <Router>

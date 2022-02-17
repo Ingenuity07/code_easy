@@ -28,7 +28,6 @@ const Admin = ({admin,setAdmin}) => {
             setError(false)
             navigate('/')
         }).catch((err => {
-            console.log(err)
             setError(true)
             setRegistered(false)
         }))

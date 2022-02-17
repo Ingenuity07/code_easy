@@ -8,7 +8,6 @@ const Navbar = ({ admin, setAdmin }) => {
     axios.get('/admin/logout')
       .then(res => {
         setAdmin(null)
-        console.log(res)
       })
       .catch(err => console.log(err.message))
   }

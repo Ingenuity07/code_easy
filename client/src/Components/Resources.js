@@ -33,17 +33,16 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
     const handleDelete = (id) => {
 
-        console.log(id)
 
         const val = window.confirm("You sure wanna delete")
         if (val) {
             axios.delete('/admin/deleteResource/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
-                console.log("deleted")
+              
                 setDeleted(!deleted)
                 navigate('/')
             }).catch((err => {
-                console.log(err)
+                
             }))
         }
     }

@@ -25,7 +25,6 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
     if(edit.title!=="")
     setEdit({title:"",src:"",url:""})
 
-    console.log(id)
 
     const handleDelete = (id) => {
 
@@ -33,20 +32,16 @@ const Cards = ({ title, setParent, setEdit,edit,admin }) => {
         if (val) {
             axios.delete('/admin/deleteCourse/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
-                console.log("deleted")
+                
                 setDeleted(!deleted)
                 navigate('/')
             }).catch((err => {
-                console.log(err)
             }))
         }
     }
 
     const handleEdit = (element) => {
         setEdit(element)
-
-        console.log(element)
-
         navigate('/addCourse')
     }
 
