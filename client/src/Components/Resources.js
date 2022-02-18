@@ -18,7 +18,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
 
     useEffect(() => {
-        axios.get('course/getAllResource/' + id)
+        axios.get('/course/getAllResource/' + id)
             .then(res => {
                 setData(res.data)
                 //console.log(res.data)
@@ -38,7 +38,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
         const val = window.confirm("You sure wanna delete")
         if (val) {
-            axios.delete('admin/deleteResource/' + id).then((res) => {
+            axios.delete('/admin/deleteResource/' + id).then((res) => {
                 //localStorage.setItem('token', res.token)
                 console.log("deleted")
                 setDeleted(!deleted)
@@ -60,7 +60,11 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
     return (
 
         <div >
+            <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
 
+                <h4>Add More</h4>
+
+            </div>
             {error && <div>{error}</div>}
             {data && (
                 <article >
@@ -71,11 +75,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
                     <div className="cards cards-resource">
 
                         {admin && <Link to={'/addResource/' + id}>
-                            <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
 
-                                <h4>Add More</h4>
-
-                            </div>
                         </Link>}
 
                         <div className="search">
