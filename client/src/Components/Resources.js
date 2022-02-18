@@ -59,25 +59,19 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
     return (
 
-        <div >
-            <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
 
-                <h4>Add More</h4>
+            {admin && <Link to={'/addResource/' + id}>
+                <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
+                    <h4>Add More</h4>
+                </div>
+            </Link>}
 
-            </div>
             {error && <div>{error}</div>}
             {data && (
                 <article >
                     <h2 style={{ color: "white" }}>{parent}</h2>
-
-
-
                     <div className="cards cards-resource">
-
-                        {admin && <Link to={'/addResource/' + id}>
-
-                        </Link>}
-
                         <div className="search">
                             <i className="fas fa-search" style={{ color: "white", marginRight: "5px", fontSize: "1.5rem" }}></i>
                             <input type="text" value={search} onChange={(event) => { setSearch(event.target.value) }} placeholder="Search..."></input>
