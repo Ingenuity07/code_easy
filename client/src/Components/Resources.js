@@ -59,7 +59,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
 
     return (
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center" ,flexDirection:"column"}}>
             <h2 style={{ color: "white" }}>{parent}</h2>
             {admin && <Link to={'/addResource/' + id}>
                 <div className="card card-resource resource" style={{ height: "4rem", borderBlockColor: "#674cff" }} >
