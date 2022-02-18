@@ -16,7 +16,7 @@ function App() {
 
 
   return (
-    <Router basename='ingenuity-code-easy.herokuapp.com'>
+    <Router>
       <div className="App">
         <Navbar  admin={admin} setAdmin={setAdmin}/>
         
