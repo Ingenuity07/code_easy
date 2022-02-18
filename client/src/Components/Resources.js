@@ -68,7 +68,7 @@ const Resources = ({ parent, setEdit, edit, admin }) => {
             </Link>}
 
             {error && <div>{error}</div>}
-            {data.length>0 && (
+            {data&&data.length>0 && (
                 <article >
                     <h2 style={{ color: "white" }}>{parent}</h2>
                     <div className="cards cards-resource">
