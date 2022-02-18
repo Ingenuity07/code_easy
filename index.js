@@ -6,11 +6,20 @@ app.use(express.json())
 app.use(cors())
 const port = process.env.PORT
 
+const path = require('path')
+
 const courseRoutes = require('./Routes/courseRoutes')
 const adminRoutes = require('./Routes/adminRoutes')
 
 app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
+app.get("/*",(req,res)=>{
+    res.sendFile(path.join(client, './public/index.html'), function(err) {
+        if (err) {
+          res.status(500).send(err)
+        }
+      })
+})
 
 if(process.env.NODE_ENV == "production")
 {
