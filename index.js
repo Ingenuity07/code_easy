@@ -14,12 +14,12 @@ const adminRoutes = require('./Routes/adminRoutes')
 app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
 
+const index = require('./client/build/index.html')
+
 app.use((req,res,next) => {
     
-    res.sendFile(('./client/build/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
+    res.sendFile((index), function(err) {
+    
   })
 })
 
