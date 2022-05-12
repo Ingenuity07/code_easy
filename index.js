@@ -16,7 +16,7 @@ app.use("/admin",adminRoutes)
 
 app.use((req,res,next) => {
     
-    res.sendFile(('./client/public/index.html'), function(err) {
+    res.sendFile(('./client/build/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
