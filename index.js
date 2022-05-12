@@ -15,11 +15,13 @@ app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
 
 app.use((req,res,next)=>{
-    res.status(404)
-    res.send({
-      error:'404 ERROR'
-    })
+    
+    res.sendFile(path.join(__dirname, './client/build/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
   })
+})
 
 
   
