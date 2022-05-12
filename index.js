@@ -14,9 +14,9 @@ const adminRoutes = require('./Routes/adminRoutes')
 app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
 
-app.use((req,res,next)=>{
+app.use((req,res,next) => {
     
-    res.sendFile(path.join(__dirname, './client/build/index.html'), function(err) {
+    res.sendFile(('./client/public/index.html'), function(err) {
     if (err) {
       res.status(500).send(err)
     }
