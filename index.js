@@ -14,7 +14,7 @@ const adminRoutes = require('./Routes/adminRoutes')
 app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
 
-app.use((err,req,res,next)=>{
+app.use((req,res,next)=>{
     res.status(404)
     res.send({
       error:'404 ERROR'
