@@ -14,14 +14,14 @@ const adminRoutes = require('./Routes/adminRoutes')
 app.use("/course",courseRoutes)
 app.use("/admin",adminRoutes)
 
-const index = require('./client/build/index.html')
+// const index = require('./client/build/index.html')
 
-app.use((req,res,next) => {
+// app.use((req,res,next) => {
     
-    res.sendFile((index), function(err) {
+//     res.sendFile((index), function(err) {
     
-  })
-})
+//   })
+// })
 
 
   
